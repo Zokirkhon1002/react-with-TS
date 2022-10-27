@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactNode, ReactElement } from "react";
+import "./App.css";
+
+// Importing Components
+import {
+  Container,
+  HeaderFC,
+  Heading,
+  HeadingWithContent,
+  List,
+  TextWithNumber,
+} from "./components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Heading title={"Salom Dunyo!"}></Heading>
+      <HeaderFC title={"With Older version"}></HeaderFC>
+      <HeadingWithContent>
+        <strong>hi!</strong>
+      </HeadingWithContent>
+      <Container>with default props</Container>
+      {/*  <TextWithNumber header={(num: number) => (<span>Header: {num}</span>)} >*/}
+      <TextWithNumber>
+        {(num: number) => <div>Today's number is: {num}</div>}
+      </TextWithNumber>
+
+      <List
+        items={["Sayfulloxon", "Evlad", "Kardesh"]}
+        render={(item: string) => <div>{item.toLowerCase()}</div>}
+      ></List>
     </div>
   );
 }
